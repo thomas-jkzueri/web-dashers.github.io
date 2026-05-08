@@ -42,7 +42,7 @@ const phaserConfig = {
   type: Phaser.CANVAS,
   width: screenWidth,
   height: screenHeight,
-  resolution: window.devicePixelRatio > 0.6 ? 0.9 : 1,
+  resolution: /iPad|iPhone|iPod/.test(navigator.userAgent) ? 0.65 : (window.devicePixelRatio > 0.6 ? 0.9 : 1),
   fps: {
     smoothStep: true
   },
@@ -52,7 +52,7 @@ const phaserConfig = {
     windowEvents: false
   },
   render: {
-    powerPreference: "low-power"
+    powerPreference: "high-performance"
   },
   scale: {
     mode: Phaser.Scale.FIT,
