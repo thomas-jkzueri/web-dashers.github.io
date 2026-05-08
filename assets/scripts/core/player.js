@@ -633,9 +633,16 @@ class PlayerObject {
     this._waveTrail.addToContainer(this._gameLayer.container, 9);
   }
   _updateParticles(_0xc43238, _0x52b718, _0x5af874) {
-    if (this.p.isDead) {
-      return;
-    }
+
+	if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+  		return;
+	}
+
+	if (this.p.isDead) {
+
+		return;
+
+	}
     const _0x119eb7 = this._scene._playerWorldX;
     const _0x519d38 = b(this.p.y);
     this._particleEmitter.particleX = _0x119eb7 - 20;
