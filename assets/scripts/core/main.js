@@ -39,7 +39,7 @@ if (window.gameCache) {
   }
 }
 const phaserConfig = {
-  type: Phaser.CANVAS,
+  type: Phaser.WEBGL,
   width: screenWidth,
   height: screenHeight,
   resolution: /iPad|iPhone|iPod/.test(navigator.userAgent) ? 0.65 : (window.devicePixelRatio > 0.6 ? 0.9 : 1),
