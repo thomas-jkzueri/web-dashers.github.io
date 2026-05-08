@@ -2787,4 +2787,15 @@ _updateBallJump(_0x2fe319) {
     this._waveTrail.stop();
     this._waveTrail.reset();
   }
+// Touch support for iPad
+document.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  // simulate spacebar press
+  document.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', code: 'Space', keyCode: 32 }));
+}, { passive: false });
+
+document.addEventListener('touchend', function(e) {
+  e.preventDefault();
+  document.dispatchEvent(new KeyboardEvent('keyup', { key: ' ', code: 'Space', keyCode: 32 }));
+}, { passive: false });
 }
