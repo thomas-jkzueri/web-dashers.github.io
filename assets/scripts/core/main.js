@@ -42,7 +42,7 @@ const phaserConfig = {
   type: Phaser.CANVAS,
   width: screenWidth,
   height: screenHeight,
-  resolution: window.devicePixelRatio > 1 ? 1.5 : 1,
+  resolution: window.devicePixelRatio > 0.75 ? 1.25 : 1,
   fps: {
     smoothStep: true
   },
