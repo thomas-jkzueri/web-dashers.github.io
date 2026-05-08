@@ -45,13 +45,19 @@
 	<script defer src="assets/scripts/core/game-scene.js?latest"></script>
 	<script defer src="assets/scripts/core/main.js"></script>
 	<script>
+		let resizeTimer;
+
 		new ResizeObserver(() => {
-			window.dispatchEvent(new Event('resize'));
+  		clearTimeout(resizeTimer);
+
+  		resizeTimer = setTimeout(() => {
+    		window.dispatchEvent(new Event("resize"));
+  		}, 150);
 		}).observe(document.documentElement);
-    
-    document.oncontextmenu = (event) => {
-      event.preventDefault();
-    };
+
+		document.oncontextmenu = (event) => {
+  		event.preventDefault();
+		};
 	</script>
 </head>
 
