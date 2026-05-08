@@ -39,10 +39,10 @@ if (window.gameCache) {
   }
 }
 const phaserConfig = {
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   width: screenWidth,
   height: screenHeight,
-  resolution: 1,
+  resolution: window.devicePixelRatio > 1 ? 1.5 : 1,
   fps: {
     smoothStep: true
   },
@@ -52,7 +52,7 @@ const phaserConfig = {
     windowEvents: false
   },
   render: {
-    powerPreference: "default"
+    powerPreference: "low-power"
   },
   scale: {
     mode: Phaser.Scale.FIT,
