@@ -38,11 +38,53 @@ if (window.gameCache) {
     }, 3000);
   }
 }
+ const isIOS =
+  /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+const lowPowerMode = isIOS;
+
+const phaserConfig = {
   type: Phaser.CANVAS,
-  width: screenWidth,
-  height: screenHeight,
-  resolution: /iPad|iPhone|iPod/.test(navigator.userAgent) ? 0.65 : (window.devicePixelRatio > 0.6 ? 0.9 : 1),
-  fps: { smoothStep: true },
+
+  // interne Render-Auflösung begrenzen
+  width: lowPowerMode ? 960 : screenWidth,
+  height: lowPowerMode ? 540 : screenHeight,
+
+  resolution: 1,
+
+  fps: {
+    target: lowPowerMode ? 30 : 60,
+    forceSetTimeOut: true,
+    smoothStep: false
+  },
+
+  backgroundColor: "#000000",
+  parent: document.body,
+
+  input: {
+    windowEvents: false
+  },
+
+  render: {
+    antialias: false,
+    pixelArt: true,
+    roundPixels: true,
+    clearBeforeRender: true,
+    powerPreference: "high-performance"
+  },
+
+  audio: {
+    noAudio: lowPowerMode
+  },
+
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+
+  scene: [BootScene, GameScene]
+};
   backgroundColor: "#000000",
   parent: document.body,
   input: {
