@@ -86,7 +86,6 @@ if (window.gameCache) {
     scene: [BootScene, GameScene]
 };
     backgroundColor: "#000000",
-    
 new Phaser.Game(phaserConfig);
 
 window.clearGameCache = () => {
