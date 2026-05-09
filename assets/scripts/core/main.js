@@ -39,13 +39,43 @@ if (window.gameCache) {
   }
 }
 const phaserConfig = {
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+const lowPowerMode = isIOS;
+
+const phaserConfig = {
   type: Phaser.CANVAS,
   width: screenWidth,
   height: screenHeight,
-  resolution: /iPad|iPhone|iPod/.test(navigator.userAgent) ? 0.45 : (window.devicePixelRatio > 0.6 ? 0.9 : 1),
+
+  // iPad 9: weniger Pixel rendern = massiv weniger Lag
+  resolution: lowPowerMode ? 0.45 : 0.9,
+
   fps: {
-    smoothStep: true
+    target: lowPowerMode ? 30 : 60,
+    forceSetTimeOut: true,
+    smoothStep: false
   },
+
+  backgroundColor: "#000000",
+  parent: document.body,
+  input: { windowEvents: false },
+  render: {
+    antialias: false,
+    pixelArt: true,
+    roundPixels: true,
+    clearBeforeRender: true
+  },
+  audio: {
+    noAudio: lowPowerMode
+  },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  scene: [BootScene, GameScene]
+};
   backgroundColor: "#000000",
   parent: document.body,
   input: {
