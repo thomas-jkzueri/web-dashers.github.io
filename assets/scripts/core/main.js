@@ -74,19 +74,19 @@ const phaserConfig = {
     powerPreference: "high-performance"
   },
 
-  audio: {
-    noAudio: lowPowerMode
+    audio: {
+      noAudio: lowPowerMode
   },
 
-  scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
+    scale: {
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH
   },
 
-  scene: [BootScene, GameScene]
+    scene: [BootScene, GameScene]
 };
-  backgroundColor: "#000000",
-  parent: document.body,
+    backgroundColor: "#000000",
+    parent: document.body,
   input: {
     windowEvents: false
   },
