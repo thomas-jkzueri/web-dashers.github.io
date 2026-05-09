@@ -42,36 +42,36 @@ if (window.gameCache) {
   /iPad|iPhone|iPod/.test(navigator.userAgent) ||
   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-const lowPowerMode = isIOS;
+  const lowPowerMode = isIOS;
 
-const phaserConfig = {
-  type: Phaser.CANVAS,
+  const phaserConfig = {
+    type: Phaser.CANVAS,
 
   // interne Render-Auflösung begrenzen
-  width: lowPowerMode ? 960 : screenWidth,
-  height: lowPowerMode ? 540 : screenHeight,
+    width: lowPowerMode ? 960 : screenWidth,
+    height: lowPowerMode ? 540 : screenHeight,
 
-  resolution: 1,
+    resolution: 1,
 
-  fps: {
-    target: lowPowerMode ? 30 : 60,
-    forceSetTimeOut: true,
-    smoothStep: false
+    fps: {
+      target: lowPowerMode ? 30 : 60,
+      forceSetTimeOut: true,
+      smoothStep: false
   },
 
-  backgroundColor: "#000000",
-  parent: document.body,
+    backgroundColor: "#000000",
+    parent: document.body,
 
-  input: {
-    windowEvents: false
+    input: {
+      windowEvents: false
   },
 
-  render: {
-    antialias: false,
-    pixelArt: true,
-    roundPixels: true,
-    clearBeforeRender: true,
-    powerPreference: "high-performance"
+    render: {
+      antialias: false,
+      pixelArt: true,
+      roundPixels: true,
+      clearBeforeRender: true,
+      powerPreference: "high-performance"
   },
 
     audio: {
