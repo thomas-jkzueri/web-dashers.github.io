@@ -86,19 +86,7 @@ if (window.gameCache) {
     scene: [BootScene, GameScene]
 };
     backgroundColor: "#000000",
-    parent: document.body,
-  input: {
-    windowEvents: false
-  },
-  render: {
-    powerPreference: "high-performance"
-  },
-  scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
-  },
-  scene: [BootScene, GameScene]
-};
+    
 new Phaser.Game(phaserConfig);
 
 window.clearGameCache = () => {
